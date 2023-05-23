@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Currículo - Michel Menahem Khafif</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                color: #333;
+                background-color: #cccccc;
+                padding: 0;
+                margin: 0;
+            }
+            .header {
+                background-color: #0b372c;
+                padding: 20px;
+                text-align: center;
+                color: white;
+            }
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin: 20px auto;
+            }
+            .section {
+                background-color: #81a899;
+                margin: 10px;
+                padding: 20px;
+                border-radius: 10px;
+            }
+            .section-title {
+                color: #cccccc;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            h1 {
+                font-weight: 500;
+            }
+            p, li {
+                font-weight: 300;
+            }
+            .nav {
+                background-color: #81a899;
+                position: sticky;
+                top: 0;
+                padding: 10px;
+                text-align: right;
+            }
+            .nav a {
+                color: #cccccc;
+                margin-right: 20px;
+                text-decoration: none;
+            }
+            .nav a:hover {
+                color: #0b372c;
+                text-decoration: underline;
+            }
+            .highlighted {
+                background-color: #092a119d;
+            }
+            .progress-bar {
+                background-color: #f2f2f2;
+                border-radius: 2px;
+                height: 20px;
+                width: 100%;
+                margin: 10px 0;
+            }
+            .progress {
+                background-color: #0b372c;
+                border-radius: 2px;
+                height: 100%;
+                width: 0;
+            }
+        </style>
+    </head>
+<body>
+    <div class="header">
+        <h1>Michel Menahem Khafif</h1>
+        <p>Estudante de Sistema de Informação - INTELI</p>
+    </div>
+    <div class="nav">
+        <a href="#about">Sobre Mim</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#education">Educação</a>
+        <a href="#languages">Idiomas</a>
+        <a href="#contact">Infos de Contato</a>
+        <a href="#extracurricular">Atividades Extracurrículares</a>
+    </div>
+    <div class="section" id="about">
+        <div class="section-title">Sobre Mim</div>
+        <p>
+            Tenho 18 anos e sou estudante de Sistemas de Informação no INTELI desde janeiro de 2023. Sou altamente comunicativo e criativo, com um forte interesse em desenvolvimento de software e tecnologia em geral.
+        </p>
+    </div>
+    <div class="section" id="skills">
+        <div class="section-title">Habilidades</div>
+        <div>
+            <p>Comunicação efetiva</p>
+            <div class="progress-bar" data-percentage="90">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div>
+            <p>Criatividade</p>
+            <div class="progress-bar" data-percentage="80">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div>
+            <p>Liderança</p>
+            <div class="progress-bar" data-percentage="75">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div>
+            <p>Pensamento Crítico</p>
+            <div class="progress-bar" data-percentage="80">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div>
+            <p>Negociações</p>
+            <div class="progress-bar" data-percentage="90">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div>
+            <p>Resolução de problemas</p>
+            <div class="progress-bar" data-percentage="65">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="education">
+        <div class="section-title">Educação</div>
+        <p>INTELI - Estudante de Sistema de Informação</p>
+        <p><strong>Início:</strong> Janeiro de 2023 </p>
+        <p><strong>Fim:</strong> Em processo... </p>
+    </div>
+    <div class="section" id="languages">
+        <div class="section-title">Idiomas</div>
+        <p>Português - Nativo</p>
+        <p>Inglês - Fluente</p>
+        <p>Hebraico - Fluente</p>
+    </div>
+    <div class="section" id="contact">
+        <div class="section-title">Infos de Contato</div>
+        <p>Gmail: michel.khafif@sou.inteli.edu.br</p>
+    </div>
+    <div class="section" id="extracurricular">
+        <div class="section-title">Atividades Extracurriculares</div>
+        <p>Diretor de eventos em movimento juveníl</p>
+        <p>Ex diretor de marketing em movimento juveníl</p>
+        <p>Ex diretor de financeiro em movimento juveníl</p>
+        <p>Monitor em movimento juveníl</p>
+    </div>
+</body>
+<div class="section" id="projects">
+    <div class="section-title">Projetos Recentes</div>
+    <!-- Este é o lugar onde os repositórios serão exibidos -->
+    <div id="repos"></div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.nav a').on('click', function(e) {
+        e.preventDefault();
+        var target = $(this).attr('href');
+        var section = $(target);
+        $('html, body').animate({scrollTop: section.offset().top}, 1000);
+
+        section.addClass('highlighted');
+        setTimeout(function() {
+            section.removeClass('highlighted');
+        }, 1890);
+    });
+
+    $('.progress-bar').each(function() {
+        var percentage = $(this).data('percentage');
+        $(this).find('.progress').animate({width: percentage + '%'}, 2000);
+    });
+
+    // Adicionando a chamada AJAX para obter os repositórios mais recentes
+    $.ajax({
+    url: 'https://api.github.com/repos/Michelk55/Tutorial_M2_MichelKhafif',
+    method: 'GET',
+    success: function(data) {
+        // Exibe as informações do repositório
+        $('#repos').append('<p><a href="'+data.html_url+'">'+data.name+'</a></p>');
+    },
+    error: function(error) {
+        console.log('Erro ao obter o repositório: ' + error);
+    }
+});
+});
+</script>
+</html>
