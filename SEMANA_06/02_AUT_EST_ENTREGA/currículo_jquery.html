@@ -79,7 +79,10 @@
     <div class="header">
         <h1>Michel Menahem Khafif</h1>
         <p>Estudante de Sistema de Informação - INTELI</p>
+        <button id="view-resume">Ver Currículo</button>
     </div>
+    
+    <div id="resume" style="display: none;">
     <div class="nav">
         <a href="#about">Sobre Mim</a>
         <a href="#skills">Habilidades</a>
@@ -178,6 +181,16 @@ $(document).ready(function() {
     });
 });
 </script>
+<script>
+    $(document).ready(function() {
+        $('#view-resume').on('click', function() {
+            $('#resume').toggle(); // Mostra ou oculta o currículo quando o botão é pressionado
+        });
+
+        // Os outros scripts ficam aqui
+    });
+</script>
+
 </html>
 
 
